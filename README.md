@@ -72,6 +72,34 @@ In another shell concat the videos
 
 Might be possible to do this in one shell by appending a single ampersand to the end of each ffmpeg command.
 
+####Add title bars
+
+`ffmpeg -i in.mp4 -vf pad=newWidth:newHeight:newX:newY out.mp4`
+
+Default pad color is black
+
+newX and newY are how far to move (0,0) from it's old origin.
+
+See: https://ffmpeg.org/ffmpeg-filters.html#Examples-65
+
+####Make extra long looping video
+`for i in {1..60}; do printf "file '%s'\n" videoToLoop.mp4 >> list.txt; done`
+
+`ffmpeg -f concat -i list.txt -c copy out.mp4`
+
+See: https://trac.ffmpeg.org/wiki/Concatenate
+
+####Mux audio and video (without re-encoding)
+
+`ffmpeg -i video.mp4 -i music.mp3 -c copy -map 0:v:0 -map -map 1:a:0 -shortest out.mp4`
+
+Muxing an mp4 with mp3 won't work in all players, but audio can be converted to wav or aac if you need more compatibility.
+
+####Crop Video
+
+`ffmpeg -i input.mp4 -filter:v "crop=out_w:out_h:x:y out.mp4`
+
+X and Y denote top left of output. 
 
 ## imagemagick
 
@@ -85,6 +113,30 @@ Can be any image file type in or out (unless RAW)
 `mogrify -path outputFolder -resize newWidthxnewHeight *.png`
 
 Output folder is an already existing destination
+
+####Batch LZW Compression
+
+`mogrify -path outFolder -depth 16 -endian msb -compress lzw *.tif`
+
+## ufraw
+http://ufraw.sourceforge.net/
+
+Ufraw is useful if you don't have adobe camera raw or need to convert raw to other file formats. Imagemagick relies on it for some conversion.
+
+`brew install ufraw`
+
+####Batch Conversion
+
+`#!/bin/bash
+i=0
+mkdir converted
+for file in ~/Desktop/pics/*.ARW
+do
+	#echo "resized/$i.jpg"
+	ufraw-batch --output="converted/$i.jpg" "$file"
+	i=$((i+1))
+done
+`
 
 
 ### Other References
