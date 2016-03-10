@@ -103,6 +103,17 @@ X and Y denote top left of output.
 
 ## imagemagick
 
+####Getting help
+
+`convert -h`
+
+`identify -list format`
+Will show you supported formats on your machine
+
+####Show image information
+
+`identify -verbose image.jpg`
+
 ####Convert file
 `convert in.jpg out.tif`
 
