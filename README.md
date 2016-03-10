@@ -139,7 +139,7 @@ done
 ```
 
 
-#### Other References
+## Other References
 https://en.wikibooks.org/wiki/FFMPEG_An_Intermediate_Guide/image_sequence
 
 http://www.stuudio.ee/anothergui/presets.html
