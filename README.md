@@ -135,7 +135,8 @@ do
 	#echo "resized/$i.jpg"
 	ufraw-batch --output="converted/$i.jpg" "$file"
 	i=$((i+1))
-done```
+done
+```
 
 
 #### Other References
