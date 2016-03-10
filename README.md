@@ -127,15 +127,15 @@ Ufraw is useful if you don't have adobe camera raw or need to convert raw to oth
 
 ####Batch Conversion
 
-`#!/bin/bash`
-`i=0`
-`mkdir converted`
-`for file in ~/Desktop/pics/*.ARW`
-`do`
-`	#echo "resized/$i.jpg"`
-`	ufraw-batch --output="converted/$i.jpg" "$file"`
-`	i=$((i+1))`
-`done`
+```#!/bin/bash
+i=0
+mkdir converted
+for file in ~/Desktop/pics/*.ARW
+do
+	#echo "resized/$i.jpg"
+	ufraw-batch --output="converted/$i.jpg" "$file"
+	i=$((i+1))
+done```
 
 
 #### Other References
