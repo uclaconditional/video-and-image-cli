@@ -46,10 +46,41 @@ Other options:
 
 `ffmpeg -y -i file.%%04d.tif -compression_algo lzw -pix_fmt gray out.%%04d.tif`
 
+####Nearest Neighbor Scaling
+
+`ffmpeg -i in.mov -sws_flags neighbor -vf scale=newWidth:newHeight out.mov`
+
+####Pipe IO
+
+How to send and receive data to/from named pipes (mac / linux only)
+
+Make two pipes
+`mkfifo /tmp/pipe1 /tmp/pipe2`
+
+Send input1 to pipe1
+`ffmpeg -y -i input1.mp4 -c copy -f nut /tmp/pipe1`
+
+In another shell window
+`ffmpeg -y -i input2.mp4 -c copy -f nut /tmp/pipe2`
+
+In another shell concat the videos
+`ffmpeg -y -i /tmp/pipe1 -i /tmp/pipe2 -filter_complex concat=n=2:v=1 out.mov
+
+Might be possible to do this in one shell by appending a single ampersand to the end of each ffmpeg command.
 
 
 ## imagemagick
 
+####Convert file
+`convert in.jpg out.tif`
+
+Can be any image file type in or out (unless RAW)
+
+####Batch Resize
+
+`mogrify -path outputFolder -resize newWidthxnewHeight *.png`
+
+Output folder is an already existing destination
 
 
 ### Other References
