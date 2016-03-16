@@ -137,9 +137,13 @@ Rotate is in degrees
 
 fps = 1 will save 1 frame per second  
 fps = 30 will save 30 frames per second  
-fps = 1/60 will save 1 frame per minute
+fps = 1/60 will save 1 frame per minute  
 
 See: https://trac.ffmpeg.org/wiki/Create%20a%20thumbnail%20image%20every%20X%20seconds%20of%20the%20video
+
+####Compress audio
+
+`ffmpeg -i inputfile.mp3 -b:a 64k outputfile.mp3`
 
 ## imagemagick
 
