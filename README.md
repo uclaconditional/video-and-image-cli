@@ -100,13 +100,13 @@ See: https://trac.ffmpeg.org/wiki/Concatenate
 
 Muxing an mp4 with mp3 won't work in all players, but audio can be converted to wav or aac if you need more compatibility.
 
-####Crop Video
+####Crop
 
 `ffmpeg -i input.mp4 -filter:v "crop=out_w:out_h:x:y out.mp4`
 
 X and Y denote top left of output. 
 
-####Trim Video
+####Trim
 
 `ffmpeg -i input.mp4 -ss 00:00:03 -t 00:01:03 -codec copy -async 1 out.mp4`
 
@@ -130,6 +130,16 @@ See: https://trac.ffmpeg.org/wiki/Seeking
 `ffmpeg -i input.mp4 -vf rotate=90 rotated90Degrees.mp4`
 
 Rotate is in degrees
+
+####Extract frames from video
+
+`ffmpeg -i input.mp4 -vf fps=1 -f image2 savedFrames/%05d.jpg`
+
+fps = 1 will save 1 frame per second  
+fps = 30 will save 30 frames per second  
+fps = 1/60 will save 1 frame per minute
+
+See: https://trac.ffmpeg.org/wiki/Create%20a%20thumbnail%20image%20every%20X%20seconds%20of%20the%20video
 
 ## imagemagick
 
