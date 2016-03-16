@@ -101,6 +101,19 @@ Muxing an mp4 with mp3 won't work in all players, but audio can be converted to 
 
 X and Y denote top left of output. 
 
+####Trim Video
+
+`ffmpeg -i input.mp4 -ss 00:00:03 -t 00:01:03 -async 1 out.mp4`
+
+SS is the new start time of the video
+
+T is the new length of the video
+
+async 1 is needed to ensure audio is correctly chopped
+
+See: http://stackoverflow.com/questions/18444194/cutting-the-videos-based-on-start-and-end-time-using-ffmpeg
+See: https://trac.ffmpeg.org/wiki/Seeking
+
 ## imagemagick
 
 ####Getting help
@@ -154,3 +167,5 @@ done
 https://en.wikibooks.org/wiki/FFMPEG_An_Intermediate_Guide/image_sequence
 
 http://www.stuudio.ee/anothergui/presets.html
+
+https://ffmpeg.org/ffmpeg.html#Main-options
