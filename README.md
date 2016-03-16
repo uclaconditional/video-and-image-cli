@@ -10,7 +10,8 @@
 
 `ffmpeg -pix_fmts > %filepath%\formats.txt see all the formats`
 
-
+`ffprobe -i input.mp4`  
+ffprobe get's video metadata
 
 ####4K H.265 
 
@@ -117,7 +118,7 @@ Codec copy is faster than decoding/recoding
 
 async 1 is needed to ensure audio is correctly chopped
 
-See: http://stackoverflow.com/questions/18444194/cutting-the-videos-based-on-start-and-end-time-using-ffmpeg
+See: http://stackoverflow.com/questions/18444194/cutting-the-videos-based-on-start-and-end-time-using-ffmpeg  
 See: https://trac.ffmpeg.org/wiki/Seeking
 
 ####Invert Colors
