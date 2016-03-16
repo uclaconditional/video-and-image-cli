@@ -46,6 +46,10 @@ Other options:
 
 `ffmpeg -y -i file.%%04d.tif -compression_algo lzw -pix_fmt gray out.%%04d.tif`
 
+####Scale 
+
+`ffmpeg -i input.mp4 -vf scale=newW:newH out.mp4
+
 ####Nearest Neighbor Scaling
 
 `ffmpeg -i in.mov -sws_flags neighbor -vf scale=newWidth:newHeight out.mov`
@@ -103,16 +107,28 @@ X and Y denote top left of output.
 
 ####Trim Video
 
-`ffmpeg -i input.mp4 -ss 00:00:03 -t 00:01:03 -async 1 out.mp4`
+`ffmpeg -i input.mp4 -ss 00:00:03 -t 00:01:03 -codec copy -async 1 out.mp4`
 
 SS is the new start time of the video
 
 T is the new length of the video
 
+Codec copy is faster than decoding/recoding
+
 async 1 is needed to ensure audio is correctly chopped
 
 See: http://stackoverflow.com/questions/18444194/cutting-the-videos-based-on-start-and-end-time-using-ffmpeg
 See: https://trac.ffmpeg.org/wiki/Seeking
+
+####Invert Colors
+
+`ffmpeg -i input.mp4 -vf lutrgb="r=negval:g=negval:b=negval" inverted.mp4`
+
+####Rotate
+
+`ffmpeg -i input.mp4 -vf rotate=90 rotated90Degrees.mp4`
+
+Rotate is in degrees
 
 ## imagemagick
 
@@ -169,3 +185,5 @@ https://en.wikibooks.org/wiki/FFMPEG_An_Intermediate_Guide/image_sequence
 http://www.stuudio.ee/anothergui/presets.html
 
 https://ffmpeg.org/ffmpeg.html#Main-options
+
+http://randombio.com/linuxsetup141.html
