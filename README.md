@@ -49,7 +49,7 @@ Other options:
 
 ####Scale 
 
-`ffmpeg -i input.mp4 -vf scale=newW:newH out.mp4
+`ffmpeg -i input.mp4 -vf scale=newW:newH out.mp4`
 
 ####Nearest Neighbor Scaling
 
