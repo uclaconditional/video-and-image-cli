@@ -158,7 +158,7 @@ Will show you supported formats on your machine
 
 `identify -verbose image.jpg`
 
-####Convert file
+####Convert file format
 `convert in.jpg out.tif`
 
 Can be any image file type in or out (unless RAW)
@@ -168,6 +168,13 @@ Can be any image file type in or out (unless RAW)
 `mogrify -path outputFolder -resize newWidthxnewHeight *.png`
 
 Output folder is an already existing destination
+
+####Batch Crop
+
+`mogrify -path outputFolder -auto-orient -crop newWidthxnewHeight+xOrigin+yOrigin *.JPG`
+
+xOrigin and yOrigin are offset from top left corner of src image. 
+auto orient will read image metadata to keep them rotated if camera was sideways during shot.
 
 ####Batch LZW Compression
 
