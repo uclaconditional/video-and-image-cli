@@ -180,6 +180,14 @@ auto orient will read image metadata to keep them rotated if camera was sideways
 
 `mogrify -path outFolder -depth 16 -endian msb -compress lzw *.tif`
 
+####Make grid from folder
+
+`montage *.jpg -geometry wxh+xSpace+ySpace -tile 6x7 ../montage.jpg`
+
+xSpace and ySpace determine the gap between tiles, use 0 for no gap 
+
+More info: http://www.imagemagick.org/Usage/montage/
+
 ## ufraw
 http://ufraw.sourceforge.net/
 
