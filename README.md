@@ -145,6 +145,13 @@ See: https://trac.ffmpeg.org/wiki/Create%20a%20thumbnail%20image%20every%20X%20s
 
 `ffmpeg -i inputfile.mp3 -b:a 64k outputfile.mp3`
 
+####Make videos from folder of folders of image sequences
+
+first cd into the folder with all your image sequences folders.
+make sure they are named in order from 00000.jpg to however many frames you have
+
+`for d in *; do ffmpeg -framerate 15 -i $d/%05d.jpg -c:v libx264 -r 15 -pix_fmt yuv420p $d.mp4; done`
+
 ## imagemagick
 
 ####Getting help
