@@ -121,6 +121,11 @@ async 1 is needed to ensure audio is correctly chopped
 See: http://stackoverflow.com/questions/18444194/cutting-the-videos-based-on-start-and-end-time-using-ffmpeg  
 See: https://trac.ffmpeg.org/wiki/Seeking
 
+####Resize
+
+`ffmpeg -i input.mp4 -vf scale=newWidth:newHeight output.mp4`
+
+
 ####Invert Colors
 
 `ffmpeg -i input.mp4 -vf lutrgb="r=negval:g=negval:b=negval" inverted.mp4`
