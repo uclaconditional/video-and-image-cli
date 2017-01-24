@@ -157,6 +157,14 @@ make sure they are named in order from 00000.jpg to however many frames you have
 
 `for d in *; do ffmpeg -framerate 15 -i $d/%05d.jpg -c:v libx264 -r 15 -pix_fmt yuv420p $d.mp4; done`
 
+####Convert gif to mp4
+
+`ffmpeg -i animated.gif -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" video.mp4`
+
+Taken From [here](http://unix.stackexchange.com/questions/40638/how-to-do-i-convert-an-animated-gif-to-an-mp4-or-mv4-on-the-command-line)
+
+Can follow up this command with the create extra long looping video from above if you want a longer loop.
+
 ## imagemagick
 
 ####Getting help
