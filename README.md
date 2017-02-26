@@ -150,6 +150,17 @@ See: https://trac.ffmpeg.org/wiki/Create%20a%20thumbnail%20image%20every%20X%20s
 
 `ffmpeg -i inputfile.mp3 -b:a 64k outputfile.mp3`
 
+####Make video from image sequence
+
+First rename your images so that they are padded with 0 zeros eg. (img00000.jpg ...
+img00253.jpg). Finder can do this if you select all images, right click, rename
+images > format with name and counter starting from 0.
+
+cd into your directory of images.
+
+`ffmpeg -framerate 30 -i img%05d.jpg -c:v libx264 -r 30 -pix_fmt yuv420p
+../video.mp4`
+
 ####Make videos from folder of folders of image sequences
 
 first cd into the folder with all your image sequences folders.
