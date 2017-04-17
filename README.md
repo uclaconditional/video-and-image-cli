@@ -178,6 +178,7 @@ Can follow up this command with the create extra long looping video from above i
 
 #### Change framerate 
 `ffmpeg -i input.mp4 -vf "setpts=2.0*PTS" out.mp4`
+
 2.0 Would be half as slow, 0.5 would be twice as fast
 ## imagemagick
 
