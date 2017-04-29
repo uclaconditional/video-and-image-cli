@@ -130,6 +130,10 @@ See: https://trac.ffmpeg.org/wiki/Seeking
 
 `ffmpeg -i input.mp4 -vf lutrgb="r=negval:g=negval:b=negval" inverted.mp4`
 
+#### Convert to Grayscale 
+
+`ffmpeg -i input.mpt -vf "hue=s=0" -c:a copy grayscale.mp4`
+
 #### Rotate
 
 `ffmpeg -i input.mp4 -vf rotate=90 rotated90Degrees.mp4`
