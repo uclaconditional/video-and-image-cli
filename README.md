@@ -43,6 +43,20 @@ Other options:
 24 bit yuvj444p double size
 
 
+#### HAP Q for playback on a quadcore machine
+
+`ffmpeg -y -i in.mov -c:v hap -format hap_q -chunks 4 -f mov out.mov`
+
+Install the codec from [the Vidox QT plugin repository](https://github.com/Vidvox/hap-qt-codec/releases/tag/version-12) for playback, and see [instructions for install with ffmpeg here](https://gist.github.com/dlublin/e4585b872dd136ae88b2aa51a6a89aac).
+
+Note that the number of 'chunks' can be a number 1-64 but should not exceed the number of CPU cores in your playback machine.
+
+Other format options:  
+hap (smaller file size but less quality)  
+hap_alpha (same as hap, but with support for alpha channel)  
+hap_q_alpha (hap_q with alpha channel)  
+
+
 #### TIFF to TIFF compress LZW and change to grayscale 
 
 `ffmpeg -y -i file.%%04d.tif -compression_algo lzw -pix_fmt gray out.%%04d.tif`
