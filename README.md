@@ -198,6 +198,17 @@ Can follow up this command with the create extra long looping video from above i
 `ffmpeg -i input.mp4 -vf "setpts=2.0*PTS" out.mp4`
 
 2.0 Would be half as slow, 0.5 would be twice as fast
+
+#### Batch Convert
+
+````
+for i in *.mp4 ; do 
+    ffmpeg -i "$i" -c:v libx264 -maxrate 10000k -bufsize 5000k  $(basename "${i/.flac}").mp4 
+done
+
+````
+
+
 ## imagemagick
 
 #### Getting help
